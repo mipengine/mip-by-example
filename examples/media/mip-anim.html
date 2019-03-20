@@ -1,0 +1,38 @@
+<!-- ## 组件介绍 -->
+<!-- 用来支持在 MIP 页中 GIF 图的使用。-->
+
+<!DOCTYPE html>
+<html mip>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>MIP page</title>
+    <link rel="canonical" href="对应的原页面地址">
+    <link rel="stylesheet" href="https://c.mipcdn.com/static/v2/mip.css">
+    <style mip-custom>
+    </style>
+  </head>
+  <body>
+  <!-- ## 带 placeholder 的加载方式 -->
+  <!-- 这里是带 placeholder 的加载方式的介绍 -->
+  <mip-anim width="210" height="210" src="http://boscdn.baidu.com/v1/assets/mipengine/sample.gif" alt="动图加载失败">
+    <mip-img class="background" width="210" height="210" src="http://boscdn.baidu.com/v1/assets/mipengine/logo.jpeg"
+      alt="图片加载失败">
+    </mip-img>
+  </mip-anim>
+
+  <!-- ## 只展现 GIF 图-->
+  <!-- 这里是只展现 GIF 图的介绍 -->
+  <mip-anim width="210" height="210" src="http://boscdn.baidu.com/v1/assets/mipengine/sample.gif" alt="动图加载失败">
+  </mip-anim>
+
+  <!-- ## 显示默认图 -->
+  <!-- 这里是显示默认图的介绍 -->
+  <mip-anim width="210" height="210" alt="图片加载失败">
+      <mip-img width="210" height="210" src="http://boscdn.baidu.com/v1/assets/mipengine/logo.jpeg"
+        alt="图片加载失败"></mip-img>
+    </mip-anim>
+  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+  <script src="https://c.mipcdn.com/static/v2/mip-anim/mip-anim.js"></script>
+  </body>
+</html>

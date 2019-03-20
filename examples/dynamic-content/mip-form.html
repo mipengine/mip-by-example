@@ -1,0 +1,129 @@
+<!-- ## 组件介绍 -->
+<!-- [mip-form](https://www.mipengine.org/v2/components/dynamic-content/mip-form.html) 组件用于在 MIP 页面中进行表单提交。`mip-form` 支持 HTTP 和 XHR(XMLHTTPRequest) 两种提交方式，使用 HTTP 提交会加载或跳转至新的页面，而使用 XHR 提交可以异步渲染更新页面。
+-->
+
+<!DOCTYPE html>
+<html mip>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <title>MIP page</title>
+    <link rel="canonical" href="对应的原页面地址">
+    <link rel="stylesheet" href="https://c.mipcdn.com/static/v2/mip.css">
+    <style mip-custom>
+    </style>
+  </head>
+  <body>
+  <!-- ## 提交表单刷新页面 -->
+  <!-- 使用 `target=_top` -->
+  <mip-form method="GET" url="/mip-form/submit-form-success" target="_top">
+    <input type="text" name="username" placeholder="姓名">
+    <input type="number" name="age" placeholder="年龄">
+    <input type="submit" value="提交">
+  </mip-form>
+
+  <!-- ## 异步渲染页面 -->
+  <!-- 使用 `fetch-url` 属性可以通过 XMLHTTPRequest 提交表单，配合 `mip-mustache` 模版组件，可以处理返回结果实现异步渲染页面。-->
+  <mip-form fetch-url="http://yourdomain.com/path">
+    <input type="text" name="name" placeholder="姓名">
+      <div submitting>
+        <template>
+          
+        </template>
+      </div>
+      <div submit-success>
+        <template type="mip-mustache">
+          Success! Thanks for {{name}} trying the mip demo.
+        </template>
+      </div>
+      <div submit-error>
+        <template type="mip-mustache">
+          Error!.
+        </template>
+      </div>
+    <input type="submit" value="提交">
+  </mip-form>
+  
+  <!-- ## 自定义表单校验 -->
+  <mip-form method="get" url="https://www.mipengine.org">
+    <input type="text" name="customnumber" validatetarget="custom" validatetype="custom" validatereg="^[0-9]*$" placeholder="我是自定义验证规则数字">
+    <div class="mip-form-target" target="custom">请输入正确的数字</div>
+    <input type="submit" value="提交">
+  </mip-form>
+
+  <!-- ## 表单自定义校验 -->
+
+
+
+
+  <!-- ## 表单验证 -->
+
+
+
+
+
+  <!-- ## 清除输入信息 -->
+
+
+  <!-- ## 输入类型 type=date-->
+
+
+  <!-- ## 输入类型 type=month-->
+
+
+  <!-- ## 输入类型 type=week-->
+
+
+  <!-- ## 输入类型 type=datetime-local-->
+
+
+  <!-- ## 输入类型 type=time-->
+
+
+
+  <!-- ## 输入类型 type=checkbox-->
+
+
+  <!-- ## 输入类型 type=email-->
+
+
+
+  <!-- ## 输入类型 type=hidden-->
+
+
+  <!-- ## 输入类型 type=number-->
+
+
+
+  <!-- ## 输入类型 type=radio-->
+
+
+  <!-- ## 输入类型 type=range-->
+
+
+  <!-- ## 输入类型 type=tel-->
+
+
+  <!-- ## 输入类型 type=url-->
+
+
+  <!-- ## 输入类型 type=password-->
+  <mip-form class="sample-form" method="get" url="/components/amp-form/submit-form-success" target="_top">
+    <input type="password" placeholder="Password..." name="pw">
+    <input type="submit" value="OK">
+  </mip-form>
+
+  <!-- ## 输入类型 select-->
+  <mip-form class="sample-form" method="get" url="/mip-form/submit-form-success" target="_top">
+    <select name="cars" id="cars">
+      <option value="volvo">Volvo</option>
+      <option value="saab">Saab</option>
+      <option value="fiat">Fiat</option>
+      <option value="audi">Audi</option>
+    </select>
+    <label for="cars">Select a car</label>
+    <input type="submit" value="OK">
+  </mip-form>
+
+  </body>
+</html>

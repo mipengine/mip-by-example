@@ -1,0 +1,29 @@
+{{ target: component(master = layout) }}
+
+{{ block: content }}
+<div class="layout-head-content">
+  <div class="start-container">
+    <h1 class="title"> ${componentName} </h1>
+    <a class="start-btn"> VIEW ON GITHUB </a>
+  </div>
+</div>
+<div class="layout-main-container">
+  <div class="layout-sidebar col-3">
+    <mip-scroll-anchor data-current-class="current">
+      <ul class="mip-mipengine-sidenav-anchor">
+          {{ for: ${categories} as ${category} }}
+          <li>
+              <a href="#${category}" anchor="${category}">${category}</a>
+          </li>
+          {{ /for }}
+      </ul>
+    </mip-scroll-anchor>
+  </div>
+  <div class="layout-main-content">
+    <div class="content-wrapper">
+      ${content|raw}
+    </div>
+  </div>
+</div>
+<script src="https://c.mipcdn.com/static/v2//${componentName}/${componentName}.js"></script>
+{{ /block }}

@@ -1,0 +1,24 @@
+{{ target: components-list }}
+
+<div class="codelab-list-wrapper">
+  <div class="codelab-list-main">
+    {{ for: ${componentList} as ${item} }}
+    <h2 id=${item.category}> ${item.category} </h2>
+    <div class="main-inner-wrapper">
+      {{ for: ${item.components} as ${compontent} }}
+      <a data-title="目标页面标题" href="${compontent.url}">
+        <div class="lab-item">
+          <div class="codelab-name-wrapper">
+            <div class="codelab-name">${compontent.name}</div>
+          </div>
+          <div class="codelab-desc">${compontent.description}</div>
+          <div class="more-detail">
+            详情
+          </div>
+        </div>
+      </a>
+      {{ /for }}
+    </div>
+    {{ /for }}
+  </div>
+</div>

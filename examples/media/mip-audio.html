@@ -1,0 +1,175 @@
+<!-- ## 组件介绍 -->
+<!-- 音频播放组件，支持 src 播放，source 播放，进度拖动功能。-->
+
+<!DOCTYPE html>
+<html mip>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <title>MIP page</title>
+  <link rel="canonical" href="对应的原页面地址">
+  <link rel="stylesheet" href="https://c.mipcdn.com/static/v2/mip.css">
+  <style mip-custom>
+    mip-audio.all-pink {
+      min-height: 40px;
+      font-size: 0;
+      width: 100%;
+      max-width: 500px;
+      min-width: 180px;
+      -webkit-tap-highlight-color: transparent;
+      -moz-user-select: none;
+      -webkit-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    .all-pink [controller]{
+      background-color: #434343;
+      border-radius: 5px;
+      padding: 10px 15px;
+      box-sizing: border-box;
+      position: relative;
+      display: -webkit-flex;
+      display: flex;
+      align-items: center;
+    }
+
+    .all-pink [play-button] {
+      width: 20px;
+      height: 20px;
+      box-sizing: content-box;
+      padding: 10px;
+      margin: -10px;
+      vertical-align: top;
+      background-size: 42px 20px;
+      background-clip: content-box;
+      flex: 0 0 auto;
+    }
+
+    .all-pink [play-button].mip-audio-stopped-icon {
+      background-image: url('https://mipcache.bdstatic.com/static/static/auido/audioimg.png');
+      background-position: 9px 11px;
+    }
+
+    .all-pink [play-button].mip-audio-playing-icon {
+      background-image: url('https://mipcache.bdstatic.com/static/static/auido/audioimg.png');
+      background-position: -13px 11px;
+    }
+
+    .all-pink [seekbar] {
+      width: 120px;
+      height: 8px;
+      box-sizing: border-box;
+      background-color: #818181;
+      border: 1px solid #989898;
+      margin-left: 15px;
+      margin-top: 1px;
+      position: relative;
+      border-radius: 8px;
+      flex-grow: 2;
+    }
+
+    .all-pink [seekbar-fill] {
+      height: 6px;
+      background-color: #414141;
+      position: absolute;
+      top: 50%;
+      margin-top: -3px;
+      border-radius: 8px;
+    }
+
+    .all-pink [seekbar-button] {
+      width: 20px;
+      background-color: #fff;
+      height: 20px;
+      border-radius: 10px;
+      position: absolute;
+      left: 0%;
+      top: 50%;
+      margin-top: -10px;
+      margin-left: -10px
+    }
+
+    .all-pink [current-time],
+    .all-pink [total-time] {
+      font-size: 13px;
+      color: #fff;
+      margin-left: 20px;
+      min-width: 40px;
+      white-space: nowrap;
+      flex: 0 0;
+    }
+
+    .all-pink [total-time] {
+      margin: 0 0 0 10px;
+    }
+
+    .color-gray {
+      color: #666!important;
+    }
+
+    .bg-color-pink {
+      background-color: #edd1d1!important;
+    }
+
+    .bg-color-pink2 {
+      background-color: #f0a6b2!important;
+    }
+
+    .bg-color-pink3 {
+      background-color: #e29daa!important;
+      border: 1px inset white;
+    }
+  </style>
+</head>
+<body>
+  <!-- ## 基本示例 -->
+  <!-- 基本使用介绍 -->
+  <mip-audio
+    src="https://mip-doc.bj.bcebos.com/guitar.mp3"
+    layout="fixed-height"
+    height="50">
+  </mip-audio>
+
+  <!-- ## 自定义控件皮肤 -->
+  <!-- 使用 `controller` 属性在 `<mip-audio>` 中声明自定义交互控件。可以任意更改 DOM 位置，通过增加 `class` 及 CSS 为控件添加皮肤。
+    当使用 `controller` 属性时，`<mip-audio>` 不会默认增加 `class="mip-audio-default-style"`，所有样式需要自己添加。
+
+    下列属性涉及到事件绑定，请务必保留：
+
+    - `controller` 交互控件最外层，用于判断是否有自定义控件。
+    - `play-button` 开始/暂停按钮。
+    - `current-time` 当前播放时间。
+    - `total-time` 音频总时长。
+    - `seekbar` 进度条。
+    - `seekbar-fill` 进度条中已播放，具有特殊颜色。
+    - `seekbar-btn` 进度条拖动按钮。
+
+    [notice] controller, current-time 等属性请务必保留，如果不需要总时间，可以设置 `display:none`。
+
+    下列 `class` 为播放时动态添加，可以设置自定义图标:
+
+    - `mip-audio-stopped-icon` 图标，暂停时显示的三角图标。
+    - `mip-audio-playing-icon` 图标，播放时显示的双竖杠图标。
+  -->
+
+  <mip-audio
+    src="https://mip-doc.bj.bcebos.com/guitar.mp3"
+    class="all-pink"
+    layout="fixed-height"
+    preload
+    height="50">
+    <div controller class="bg-color-pink">
+      <i play-button class="mip-audio-stopped-icon"></i>
+      <div seekbar>
+        <div seekbar-fill class="bg-color-pink2"></div>
+        <div seekbar-button class="bg-color-pink3"></div>
+      </div>
+      <div current-time class="color-gray">00:00</div>
+      <div total-time class="color-gray">--:--</div>
+    </div>
+  </mip-audio>
+  <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+  <script src="/mip-audio/mip-audio.js"></script>
+</body>
+</html>

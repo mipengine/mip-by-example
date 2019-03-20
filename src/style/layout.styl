@@ -1,0 +1,89 @@
+
+.layout-sidebar
+  top 0
+  height 100vh
+  position sticky
+  background #fff
+  z-index 20000 !important
+  padding-left 90px
+  padding-right 0
+  box-shadow 5px 0 5px -5px rgba(0, 0, 0, 0.4)
+  box-sizing border-box
+  .mip-mipengine-sidenav-anchor
+    font-size 16px
+    font-weight 600
+    padding-top 90px
+    li
+      list-style none
+      margin-bottom 30px
+    a
+      text-decoration none
+    // .current::after
+    //   content ""
+    //   display block
+    //   height 3px
+    //   width 65px
+    //   background-color #3cacf1
+
+  .sidenav-wrapper
+    margin-top 30px !important
+    padding-bottom 45px
+
+  @media screen and (max-width: 1200px)
+    padding-left 15px
+    width 275px
+    // padding-right 0
+    // .sidenav-wrapper
+    //   margin-left 25px !important
+    //   width 250px !important
+
+  @media screen and (max-width: 768px)
+    display none
+
+
+@media screen and (min-width: 768px)
+  body
+    &:after
+      display none
+
+.layout-head-content
+  color #fff
+  height 360px
+  width 100%
+  margin-top 60px
+  background url("../img/background.png") center bottom no-repeat
+  // background-color #f8f8f8
+  .start-container
+    height 100%
+    background url("../img/innerbg.png") center bottom no-repeat
+    text-align center
+    padding-top 140px
+    font-size 36px
+    a
+      color #fff
+    h1
+      font-size 40px
+      font-weight 300
+    p
+      font-size 18px
+    .title
+      padding-bottom 45px
+    .start-btn
+      font-size 13px
+      padding 15px
+      border 1px solid #fff
+
+.layout-main-container
+  display flex
+
+.col-2
+  width 16.66667%
+
+.col-3
+  width 25%
+
+.col-8
+  width 66.66667%
+
+.col-9
+  width 75%

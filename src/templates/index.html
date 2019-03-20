@@ -1,0 +1,29 @@
+{{ target: index(master = layout) }}
+
+{{ block: content }}
+<div class="layout-head-content ">
+  <div class="start-container">
+    <h1 class="title"> MIP By Example</h1>
+    <p> 丰富多样的组件示例 帮你快速学习 MIP 组件</p>
+    <p>  </p>
+  </div>
+</div>
+
+<div class="layout-main-container">
+  <div class="layout-sidebar col-2">
+      <mip-scroll-anchor data-current-class="current">
+        <ul class="mip-mipengine-sidenav-anchor">
+          {{ for: ${categories} as ${category} }}
+            <li>
+              <a href="#${category}" anchor="${category}">${category}</a>
+            </li>
+          {{ /for }}
+        </ul>
+      </mip-scroll-anchor>
+    </div>
+    <div class="layout-main-content col-9">
+      {{ use:components-list(componentList = ${componentList}) }}
+    </div>
+</div>
+<!-- {% include 'navbar', navbar: navbar%} -->
+{{ /block }}

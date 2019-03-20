@@ -1,0 +1,19 @@
+{{ target: navbar }}
+<mip-fixed type="top" class="layout-navbar-fixed">
+  <div class="layout-navbar">
+    <a data-type="mip" href="/"><div class="navbar-logo"></div></a>
+    <div class="navbar-menu">
+      <ul class="navbar-menu-wrapper">
+      {{ for: ${navbar} as ${item}, ${index} }}
+      <li class="navbar-item {{ if: parseInt(${navIndex}, 10) == ${index} }} active {{ /if }}">
+        <a href="${item.url}" class="menu-name" title="${item.name}"> 
+          ${item.name}
+        </a>
+      </li>
+      {{ /for }}
+      </ul>
+      <div class="navbar-indicator" m-bind:style="navbarStyle"></div>
+    </div>
+    <div class="navbar-toggle" on="tap:nav-sidebar.open"><i class="iconfont icon-bars"></i></div>
+  </div>
+</mip-fixed>

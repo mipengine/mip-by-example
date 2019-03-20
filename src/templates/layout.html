@@ -1,0 +1,24 @@
+{{ target: layout }}
+<!DOCTYPE html>
+<html mip>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>${title}</title>
+    <meta name="description" content="${description}">
+    <!-- <link rel="canonical" href="${host}${url}"> -->
+    <link rel="stylesheet" type="text/css" href="https://c.mipcdn.com/static/v2/mip.css">
+    <link rel="icon" href="https://www.mipengine.org/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="/index.css">
+  </head>
+  <body>
+    {{ use: navbar(navbar = ${navbar}, navIndex = ${navIndex}) }}
+    {{ block: content }}{{ /block }}
+    <script src="/index.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mip.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mip-sidebar/mip-sidebar.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-sidenav/mip-mipengine-sidenav.js"></script>
+    <script src="https://c.mipcdn.com/static/v2/mipengine.org/mip-mipengine-stepper-tabs/mip-mipengine-stepper-tabs.js"></script>
+    <script src="https://c.mipcdn.com/static/v1/mip-scroll-anchor/mip-scroll-anchor.js"></script>
+  </body>
+</html>
